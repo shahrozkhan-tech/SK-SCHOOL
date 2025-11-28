@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* --- General Resets & Variables --- */
+       
 * {
     margin: 0;
     padding: 0;
@@ -15,12 +15,12 @@
 }
 
 :root {
-    --primary-purple: #7c73e6; /* Approximate color from the image */
-    --light-purple-bg: #f8faff; /* Lighter background for some sections */
+    --primary-purple: #7c73e6; 
+    --light-purple-bg: #f8faff; 
     --text-dark: #333333;
     --text-light: #ffffff;
-    --text-grey: #666666; /* Slightly darker grey for general text */
-    --bg-overlay: rgba(45, 52, 64, 0.9); /* Dark blue-grey overlay for hero */
+    --text-grey: #666666; 
+    --bg-overlay: rgba(45, 52, 64, 0.9); 
 }
 
 body {
@@ -29,7 +29,7 @@ body {
     color: var(--text-dark);
 }
 
-/* Utility Classes */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -68,7 +68,7 @@ ul {
     margin-right: auto;
 }
 
-/* Button Styles */
+
 .btn {
     display: inline-block;
     border: none;
@@ -106,7 +106,7 @@ ul {
     width: 100%;
 }
 
-/* --- Header / Navigation --- */
+
 .header {
     position: absolute;
     top: 0;
@@ -126,7 +126,7 @@ ul {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-light); /* Changed to light for hero */
+    color: var(--text-light); 
 }
 
 .nav-links ul {
@@ -138,13 +138,11 @@ ul {
 }
 
 .nav-links a {
-    color: var(--text-light); /* Changed to light for hero */
+    color: var(--text-light); 
     font-weight: 500;
     padding-bottom: 5px;
     position: relative;
 }
-
-/* Active link underline style */
 .nav-links a.active::after {
     content: '';
     position: absolute;
@@ -158,9 +156,6 @@ ul {
 .nav-links a:hover {
     color: var(--primary-purple);
 }
-
-
-/* --- Hero Section (from previous code) --- */
 .hero-section {
     position: relative;
     background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -169,7 +164,7 @@ ul {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Space for header */
+    padding-top: 80px; 
 }
 
 .hero-flex {
@@ -250,28 +245,23 @@ ul {
     margin-top: 10px;
     border-radius: 5px;
 }
-
-
-/* --- Courses Section (Image 1) --- */
 .courses-section {
-    background-color: var(--light-purple-bg); /* Section background color */
+    background-color: var(--light-purple-bg);
     padding-top: 80px;
-    padding-bottom: 150px; /* More padding bottom to allow cards to overlap white section */
+    padding-bottom: 150px; 
     position: relative;
-    z-index: 1; /* Ensure this section sits above the following white space */
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); /* Purple top, angled cut at bottom */
+    z-index: 1; 
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); 
 }
-
-/* White background area below the purple courses section (manual addition to replicate the shape) */
 .courses-section::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Adjust height for the white area */
+    height: 100px; 
     background-color: #fff;
-    z-index: -1; /* Place behind the cards */
+    z-index: -1; 
 }
 
 
@@ -296,7 +286,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 50px; /* Adjust if header is removed */
+    margin-top: 50px; 
 }
 
 .course-card {
@@ -369,13 +359,11 @@ ul {
     color: var(--text-grey);
     margin-bottom: 20px;
 }
-
-/* --- Testimonial Section (Image 2) --- */
 .testimonial-section {
     position: relative;
-    background-color: #f8faff; /* Match the course section's light purple */
-    padding: 100px 0; /* Adjust padding as needed */
-    overflow: hidden; /* For any potential absolute positioning elements */
+    background-color: #f8faff; 
+    padding: 100px 0; 
+    overflow: hidden; 
 }
 
 .testimonial-content {
@@ -383,7 +371,7 @@ ul {
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 2; /* Ensure content is above background image */
+    z-index: 2; 
 }
 
 .testimonial-image-bg {
@@ -406,7 +394,7 @@ ul {
     text-align: center;
     max-width: 700px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    position: relative; /* To position content above the bg image */
+    position: relative; 
     z-index: 2;
 }
 
@@ -438,11 +426,9 @@ ul {
     font-style: italic;
     line-height: 1.8;
 }
-
-/* --- Our Programs Section (Image 3) --- */
 .programs-section {
-    background-color: var(--text-light); /* White background */
-    padding-top: 50px; /* Adjust as needed */
+    background-color: var(--text-light); 
+    padding-top: 50px; 
 }
 
 .program-nav {
@@ -454,15 +440,13 @@ ul {
 
 .program-nav .btn {
     width: 100px;
-    border-radius: 5px; /* Square buttons */
+    border-radius: 5px; 
     padding: 12px 20px;
     text-transform: uppercase;
     font-size: 0.9rem;
 }
-
-/* --- Education Excellence Section (Image 4) --- */
 .excellence-section {
-    background-color: var(--text-light); /* White background */
+    background-color: var(--text-light); 
 }
 
 .excellence-flex {
@@ -517,11 +501,9 @@ ul {
     color: var(--primary-purple);
     font-size: 1.5rem;
     margin-right: 15px;
-    width: 30px; /* Fixed width for icons to align text */
+    width: 30px; 
     text-align: center;
 }
-
-/* --- Our Teachers Section (Image 5) --- */
 .teachers-section {
     background-color: var(--text-light);
 }
@@ -580,9 +562,6 @@ ul {
     font-size: 0.9rem;
     color: var(--text-grey);
 }
-
-
-/* --- Footer --- */
 .footer {
     background-color: #333;
     color: var(--text-light);
@@ -594,9 +573,6 @@ ul {
 .footer p {
     font-size: 0.9rem;
 }
-
-
-/* --- Responsive Adjustments --- */
 @media (max-width: 968px) {
     .hero-flex {
         flex-direction: column;
@@ -618,37 +594,30 @@ ul {
 
     .header {
         padding: 20px;
-        background-color: #fff; /* Make header solid on mobile for readability */
+        background-color: #fff; 
     }
     
     .nav-links, .header-btn {
-       /* For this demo, let's hide nav links on small screens to simplify */
        display: none; 
     }
 
     .logo {
-        color: var(--text-dark); /* Logo becomes dark on white header */
+        color: var(--text-dark); /
     }
-
-    /* Courses Section */
     .courses-section {
-        padding-bottom: 80px; /* Less overlap on mobile */
-        clip-path: none; /* Remove angled cut on small screens */
+        padding-bottom: 80px; 
+        clip-path: none; 
     }
     .courses-section::after {
-        display: none; /* Hide the white cut-out */
+        display: none; 
     }
-
-    /* Testimonial Section */
     .testimonial-section {
         padding: 60px 0;
     }
 
     .testimonial-avatar {
-        margin-top: -70px; /* Adjust for smaller screens */
+        margin-top: -70px; 
     }
-
-    /* Excellence Section */
     .excellence-flex {
         flex-direction: column;
         text-align: center;
@@ -666,13 +635,11 @@ ul {
     .stats-list {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center align list items */
+        align-items: center; 
     }
     .stats-list li {
-        justify-content: center; /* Center items with icons */
+        justify-content: center; 
     }
-
-    /* General section titles and descriptions */
     .section-title {
         font-size: 2rem;
     }
@@ -961,4 +928,5 @@ footer {
     </div>
   </footer>
 </body>
+
 </html>
