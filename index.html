@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneSchool Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- General Resets & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-purple: #7c73e6; /* Approximate color from the image */
+    --light-purple-bg: #f8faff; /* Lighter background for some sections */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --text-grey: #666666; /* Slightly darker grey for general text */
+    --bg-overlay: rgba(45, 52, 64, 0.9); /* Dark blue-grey overlay for hero */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.common-section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--text-grey);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn-purple {
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+}
+
+.btn-purple:hover {
+    background-color: #6a61cc;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* --- Header / Navigation --- */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 10;
+    background: transparent;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light); /* Changed to light for hero */
+}
+
+.nav-links ul {
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: var(--text-light); /* Changed to light for hero */
+    font-weight: 500;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+/* Active link underline style */
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-purple);
+}
+
+.nav-links a:hover {
+    color: var(--primary-purple);
+}
+
+
+/* --- Hero Section (from previous code) --- */
+.hero-section {
+    position: relative;
+    background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px; /* Space for header */
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    color: var(--text-light);
+    max-width: 600px;
+    padding-right: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    max-width: 500px;
+}
+
+.hero-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup-card {
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.signup-card h2 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-purple);
+}
+
+.form-submit-btn {
+    padding: 15px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+/* --- Courses Section (Image 1) --- */
+.courses-section {
+    background-color: var(--light-purple-bg); /* Section background color */
+    padding-top: 80px;
+    padding-bottom: 150px; /* More padding bottom to allow cards to overlap white section */
+    position: relative;
+    z-index: 1; /* Ensure this section sits above the following white space */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); /* Purple top, angled cut at bottom */
+}
+
+/* White background area below the purple courses section (manual addition to replicate the shape) */
+.courses-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Adjust height for the white area */
+    background-color: #fff;
+    z-index: -1; /* Place behind the cards */
+}
+
+
+.courses-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--text-dark);
+}
+
+.courses-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.courses-header p {
+    font-size: 1.1rem;
+    color: var(--text-grey);
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px; /* Adjust if header is removed */
+}
+
+.course-card {
+    background-color: var(--text-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.course-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.course-price {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.course-info {
+    padding: 25px;
+}
+
+.course-meta {
+    display: flex;
+    align-items: center;
+    color: var(--text-grey);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.course-meta span {
+    margin-right: 15px;
+}
+
+.course-meta i {
+    margin-right: 5px;
+    color: var(--primary-purple);
+}
+
+.course-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.course-info p {
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    margin-bottom: 20px;
+}
+
+/* --- Testimonial Section (Image 2) --- */
+.testimonial-section {
+    position: relative;
+    background-color: #f8faff; /* Match the course section's light purple */
+    padding: 100px 0; /* Adjust padding as needed */
+    overflow: hidden; /* For any potential absolute positioning elements */
+}
+
+.testimonial-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Ensure content is above background image */
+}
+
+.testimonial-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1573496359142-b8d87734b584?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Woman on laptop, greyscaled */
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    z-index: 1;
+}
+
+.testimonial-card {
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 700px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative; /* To position content above the bg image */
+    z-index: 2;
+}
+
+.testimonial-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: -90px auto 20px auto; /* Negative margin to pull it up */
+    border: 5px solid var(--text-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    color: var(--text-grey);
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* --- Our Programs Section (Image 3) --- */
+.programs-section {
+    background-color: var(--text-light); /* White background */
+    padding-top: 50px; /* Adjust as needed */
+}
+
+.program-nav {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.program-nav .btn {
+    width: 100px;
+    border-radius: 5px; /* Square buttons */
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --- Education Excellence Section (Image 4) --- */
+.excellence-section {
+    background-color: var(--text-light); /* White background */
+}
+
+.excellence-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.excellence-image {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+}
+
+.excellence-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.excellence-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.excellence-content .section-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.excellence-content .section-description {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 30px;
+}
+
+.stats-list {
+    margin-top: 30px;
+}
+
+.stats-list li {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.stats-list li i {
+    color: var(--primary-purple);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    width: 30px; /* Fixed width for icons to align text */
+    text-align: center;
+}
+
+/* --- Our Teachers Section (Image 5) --- */
+.teachers-section {
+    background-color: var(--text-light);
+}
+
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.teacher-card {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--light-purple-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.teacher-avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--primary-purple);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.teacher-avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.teacher-card span {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+.teacher-card p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: #333;
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer p {
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 968px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 50px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-form-container {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header {
+        padding: 20px;
+        background-color: #fff; /* Make header solid on mobile for readability */
+    }
+    
+    .nav-links, .header-btn {
+       /* For this demo, let's hide nav links on small screens to simplify */
+       display: none; 
+    }
+
+    .logo {
+        color: var(--text-dark); /* Logo becomes dark on white header */
+    }
+
+    /* Courses Section */
+    .courses-section {
+        padding-bottom: 80px; /* Less overlap on mobile */
+        clip-path: none; /* Remove angled cut on small screens */
+    }
+    .courses-section::after {
+        display: none; /* Hide the white cut-out */
+    }
+
+    /* Testimonial Section */
+    .testimonial-section {
+        padding: 60px 0;
+    }
+
+    .testimonial-avatar {
+        margin-top: -70px; /* Adjust for smaller screens */
+    }
+
+    /* Excellence Section */
+    .excellence-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .excellence-image {
+        margin-bottom: 40px;
+    }
+
+    .excellence-content .section-title,
+    .excellence-content .section-description {
+        text-align: center;
+    }
+
+    .stats-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align list items */
+    }
+    .stats-list li {
+        justify-content: center; /* Center items with icons */
+    }
+
+    /* General section titles and descriptions */
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .signup-card {
+        padding: 30px;
+    }
+}
+footer {
+      background:#7c73e6 ;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #ff6b6b;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-flex">
+            <div class="logo">
+                S.K-School
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Courses</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Teachers</a></li>
+                </ul>
+            </nav>
+            <div class="header-btn">
+                <a href="#" class="btn btn-sm btn-purple">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-flex">
+            
+            <div class="hero-content">
+                <h1>Learn From The Expert</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <a href="#" class="btn btn-lg btn-purple">Admission Now</a>
+            </div>
+
+            <div class="hero-form-container">
+                <div class="signup-card">
+                    <h2>Sign Up</h2>
+                    <form action="#">
+                        <div class="input-group">
+                            <input type="email" placeholder="Email Addresss" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" placeholder="Re-type Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-purple form-submit-btn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-header">
+                <h2>Our Popular Courses</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, unde.</p>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image-wrapper">
+                        <img src="assets/images.jpg" alt="Student studying">
+                        <span class="course-price">$80</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 15 Lessons / 12 week</span>
+                            </div>
+                        <h3>WEB-DEVELOPMENT</h3>
+                        <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit.</p>
+                        </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image-wrapper">
+                        <img src="assets/images (1).jpg" alt="Students collaborating">
+                        <span class="course-price">$100</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 20 Lessons / 13 week</span>
+                        </div>
+                        <h3>PYTHON PROGRAMMING</h3>
+                        <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit.</p>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image-wrapper">
+                        <img src="assets/maxresdefault.jpg" alt="">
+                        <span class="course-price">$130</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 25 Lessons / 15 week</span>
+                        </div>
+                        <h3>ADVANCE PYTHON</h3>
+                        <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container testimonial-content">
+            <div class="testimonial-image-bg"></div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <img src="assets/photo.jpeg" alt="">
+                </div>
+                <h3>Jerome Jensen</h3>
+                <p>" Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum rem soluta sit eius necessitatibus voluptate excepturi beatae ad eveniet sapiente impedit quae modi quo provident odit molestias! Rem reprehenderit assumenda "</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs-section common-section-padding">
+        <div class="container text-center">
+            <div class="program-nav">
+                <button class="btn btn-sm btn-purple">Prev</button>
+                <button class="btn btn-sm btn-purple">Next</button>
+            </div>
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!</p>
+        </div>
+    </section>
+
+    <section class="excellence-section common-section-padding">
+        <div class="container excellence-flex">
+            <div class="excellence-image">
+                <img src="assets/undraw_youtube_tutorial.svg" alt="Online Learning illustration">
+            </div>
+            <div class="excellence-content">
+                <h2 class="section-title">We Are Excellent In Education</h2>
+                <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rem enim porro possimus fugiat quo molestiae illo.</p>
+                <ul class="stats-list">
+                    <li><i class="fas fa-user-graduate fa-fw"></i> 22,931 Yearly Graduates</li>
+                    <li><i class="fas fa-university fa-fw"></i> 150 Universities Worldwide</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="teachers-section common-section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Our Teachers</h2>
+            <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!</p>
+            <div class="teacher-grid">
+                <div class="teacher-card">
+                    <div class="teacher-avatar-circle">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Benjamin Stone">
+                    </div>
+                    <h3>Benjamin Stone</h3>
+                    <span>English Teacher</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur. Porro</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-avatar-circle">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Kathleen Stone">
+                    </div>
+                    <h3>Kathleen Stone</h3>
+                    <span>Physics Teacher</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur. Porro</p>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-avatar-circle">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Sadie White">
+                    </div>
+                    <h3>Sadie White</h3>
+                    <span>Mathmatics Teacher</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur. Porro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <p>We provide top-notch consulting and financial services to help businesses succeed globally.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: info@S.K SCHOOL .com</li>
+          <li>Phone: +92 3198588616</li>
+          <li>Address: PAKISTAN</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
