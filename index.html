@@ -13,6 +13,40 @@
     padding: 0;
     box-sizing: border-box;
 }
+        .toast {
+  position: fixed;
+  top: 20px;               /* TOP POSITION */
+  left: 50%;
+  transform: translateX(-50%) translateY(-40px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  color: #111;
+  min-width: 600px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 99999;
+}
+
+.toast-icon {
+  font-size: 20px;
+  color: #4CAF50;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
 
 :root {
     --primary-purple: #7c73e6; 
@@ -718,6 +752,9 @@ footer {
     </style>
 </head>
 <body>
+    <div id="toast" class="toast">
+  <div class="toast-message">Your notification is working!</div>
+</div>
 
     <header class="header">
         <div class="container header-flex">
@@ -927,6 +964,23 @@ footer {
       </div>
     </div>
   </footer>
+    <script>
+function showToast(message = "This is a top notification!") {
+  const toast = document.getElementById("toast");
+  document.querySelector(".toast-message").innerText = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
+}
+
+window.onload = () => {
+  showToast("Welcome! To Website.");
+};
+</script>
 </body>
 
 </html>
+
